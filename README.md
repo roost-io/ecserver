@@ -4,6 +4,10 @@
 
 Voting application contains various frontend and backend microservices. These microservices are deployed and are available over ingress in Roost Cluster.
 
+### ECserver
+
+An backend app written in Golang for election-commission to store list of candidates.
+
 ### Voter
 
 An frontend application written in node to allow participants to vote.
@@ -20,9 +24,6 @@ An frontend to manage the election candidates and uses ecserver as backend to st
 
 Depends on: ecserver
 
-### ECserver
-
-An backend app written in Golang for election-commission to store list of candidates.
 
 ## How to deploy
 
