@@ -5,6 +5,7 @@ ifndef IMAGE_TAG
 endif
 CLUSTER_IP := $(shell ping -W2 -n -q -c1 current-cluster-roost.io  2> /dev/null | awk -F '[()]' '/PING/ { print $$2}')
 
+# just build only
 # HOSTNAME := $(shell hostname)
 .PHONY: all
 all: dockerise helm-deploy
