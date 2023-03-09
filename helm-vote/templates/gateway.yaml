@@ -9,6 +9,7 @@ spec:
   gatewayClassName: nginx
   listeners:
   - name: http
+    hostname: "{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
     port: 80
     protocol: HTTP
 ---
@@ -23,11 +24,11 @@ spec:
   hostnames:
   - "{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
   rules:
-  - matches:
+  - backendRefs:
+    - name: {{ .Values.services.ecserver.serviceName }}
+      port: 80
+    matches:
     - headers:
       - type: Exact
         name: env
         value: {{ .Values.services.ecserver.serviceName }}
-    backendRefs:
-    - name: {{ .Values.services.ecserver.serviceName }}
-      port: 80
