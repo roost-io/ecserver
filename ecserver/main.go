@@ -14,7 +14,7 @@ var (
 	candidates = []*Candidate{
 		{
 			Name:     "Roost",
-			ImageUrl: "https://roost.ai/hubfs/Roost-V3.svg",
+			ImageUrl: "https://roost.ai/hubfs/logos/Roost.ai-logo-gold.svg",
 		},
 		{
 			Name:     "Docker",
