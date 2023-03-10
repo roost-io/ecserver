@@ -20,3 +20,21 @@ spec:
     backendRefs:
     - name: {{ .Values.services.ecserver.serviceName }}
       port: {{ .Values.httpServicePort }}
+  backendRefs:
+    - name: ecserver
+      port: 80
+      namespace: default
+
+---
+kind: ReferenceGrant
+metadata:
+  name: {{ .Values.namespace }}
+  namespace: default
+spec:
+  from:
+  - group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    namespace: {{ .Values.namespace }}
+  to:
+  - group: ""
+    kind: Service
