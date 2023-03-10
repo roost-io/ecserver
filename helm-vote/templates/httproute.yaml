@@ -11,6 +11,7 @@ spec:
     sectionName: http
   hostnames:
   - "{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
+  - "testnow-on-demand-mayank-3845.ec.13.232.139.118.nip.io"
   rules:
   - matches:
     - headers:
