@@ -20,7 +20,7 @@ spec:
     backendRefs:
     - name: {{ .Values.services.ecserver.serviceName }}
       port: {{ .Values.httpServicePort }}
-  backendRefs:
+  - backendRefs:
     - name: ecserver
       port: 80
       namespace: default
