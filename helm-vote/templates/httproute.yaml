@@ -10,8 +10,7 @@ spec:
     namespace: default
     sectionName: http
   hostnames:
-  - "{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
-  - "testnow-on-demand-mayank-3845.ec.13.232.139.118.nip.io"
+  - "{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
   rules:
   - matches:
     - headers:
@@ -24,19 +23,19 @@ spec:
   - backendRefs:
     - name: ecserver
       port: 80
-      namespace: default
+      # namespace: default
 
 ---
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: ReferenceGrant
-metadata:
-  name: {{ .Values.namespace }}
-  namespace: default
-spec:
-  from:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    namespace: {{ .Values.namespace }}
-  to:
-  - group: ""
-    kind: Service
+# apiVersion: gateway.networking.k8s.io/v1beta1
+# kind: ReferenceGrant
+# metadata:
+#   name: {{ .Values.namespace }}
+#   namespace: default
+# spec:
+#   from:
+#   - group: gateway.networking.k8s.io
+#     kind: HTTPRoute
+#     namespace: {{ .Values.namespace }}
+#   to:
+#   - group: ""
+#     kind: Service

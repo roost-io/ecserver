@@ -24,10 +24,10 @@ var (
  			Name:     "MiniKube",
  			ImageUrl: "https://miro.medium.com/max/400/0*KzqL3xqmXzV5PPjX.png",
  		},
-// 		{
-// 		 	Name:     "K3D",
-// 			ImageUrl: "https://www.suse.com/c/wp-content/uploads/2021/02/K3D-Blog-Graphic-20210209.png",
-// 		},
+		{
+		 	Name:     "K3D",
+			ImageUrl: "https://www.suse.com/c/wp-content/uploads/2021/02/K3D-Blog-Graphic-20210209.png",
+		},
 		{
 			Name: "Rancher",
 			ImageUrl: "https://rancher.com/assets/img/logos/rancher-logo-horiz-color.svg",
@@ -58,6 +58,7 @@ func writeBasicResponse(w http.ResponseWriter, resp *BasicResponse) {
 	if err != nil {
 		log.Println("error marshaling response to vote request. error: ", err)
 	}
+	log.Printf("basic response: %s\n", string(respJson))
 	w.Write(respJson)
 }
 
@@ -71,6 +72,8 @@ func writeAllCandidatesResponse(w http.ResponseWriter) {
 	if err != nil {
 		log.Println("error marshaling response to vote request. error: ", err)
 	}
+	log.Printf("candidate write response : %s\n", string(respJson))
+
 	w.Write(respJson)
 }
 
