@@ -7,10 +7,11 @@ metadata:
 spec:
   parentRefs:
   - name: roost
-    namespace: default
+    namespace: roost
     sectionName: http
   hostnames:
-  - "{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
+  - "{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
+  - "{{ .Values.services.ecserver.serviceName }}.{{ .Values.namespace }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
   rules:
   - matches:
     - headers:
@@ -21,7 +22,7 @@ spec:
     - name: {{ .Values.services.ecserver.serviceName }}
       port: {{ .Values.httpServicePort }}
   - backendRefs:
-    - name: ecserver
+    - name: {{ .Values.services.ecserver.serviceName }}
       port: 80
       # namespace: default
 
