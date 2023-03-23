@@ -23,7 +23,7 @@ spec:
       port: {{ .Values.httpServicePort }}
   - backendRefs:
     - name: {{ .Values.services.ecserver.serviceName }}
-      port: 80
+      port: {{ .Values.httpServicePort }}
       # namespace: default
 
 ---
