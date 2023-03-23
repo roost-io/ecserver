@@ -1,19 +1,19 @@
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   annotations:
-#   name: ecserver
-#   namespace: {{ .Values.namespace }}
-# spec:
-#   ingressClassName: nginx 
-#   rules:
-#   - host: "{{ .Values.namespace }}.{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: {{ .Values.services.ecserver.serviceName }}
-#             port:
-#               number: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: ecserver
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: nginx 
+  rules:
+  - host: "{{ .Values.namespace }}.{{ .Values.services.ecserver.serviceName }}.{{ .Values.clusterIP }}.{{ .Values.clusterDomain }}"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.services.ecserver.serviceName }}
+            port:
+              number: 80

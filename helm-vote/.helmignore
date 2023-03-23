@@ -22,6 +22,6 @@
 *.tmproj
 .vscode/
 
-templates/tests
-templates/ingress.yaml
+# templates/tests
+# templates/ingress.yaml
 # templates/httproute.yaml
