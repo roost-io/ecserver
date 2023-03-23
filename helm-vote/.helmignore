@@ -24,4 +24,4 @@
 
 templates/tests
 templates/ingress.yaml
-templates/httproute.yaml
+# templates/httproute.yaml
