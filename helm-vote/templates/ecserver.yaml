@@ -38,10 +38,6 @@ spec:
     spec:
       containers:
       - name: ecserver
-        {{- if eq .Values.registry "" }}
-        image: '{{- printf "%s:%s" .Values.services.ecserver.imageName .Values.tag -}}'
-        {{- else }}
-        image: '{{- printf "%s/%s:%s" .Values.registry .Values.services.ecserver.imageName .Values.tag -}}'
-        {{- end }}
+        image: '{{- printf "%s/%s:%s" .Values.registry .Values.services.ecserver.imageName .Values.tag | trimPrefix "/" -}}'
         ports:
         - containerPort: 8081
